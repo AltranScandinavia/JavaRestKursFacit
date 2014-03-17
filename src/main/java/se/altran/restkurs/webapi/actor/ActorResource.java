@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.webapi.movie.MovieResource;
 
 import com.google.inject.Inject;
@@ -29,7 +29,7 @@ import com.google.inject.Inject;
 public class ActorResource {
 
 	@Inject
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	
 	@GET

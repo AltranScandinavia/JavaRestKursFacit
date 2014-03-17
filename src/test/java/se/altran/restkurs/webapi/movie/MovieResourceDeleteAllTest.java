@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.movie.Movie;
 import se.altran.restkurs.webapi.HttpHelper;
 
@@ -30,7 +30,7 @@ public class MovieResourceDeleteAllTest {
     	
 	private ArrayList<Movie> movies;
 	private Server server;
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -42,7 +42,7 @@ public class MovieResourceDeleteAllTest {
 		movies.add(sunesSommar);
 		movies.add(gravity);
 		
-		movieService = mock(IMovieService.class);
+		movieService = mock(MovieService.class);
 		when(movieService.getMovies()).thenReturn(movies);
 
 		// Start the server

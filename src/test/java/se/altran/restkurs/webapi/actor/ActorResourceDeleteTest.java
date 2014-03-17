@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -26,7 +26,7 @@ import com.google.inject.AbstractModule;
 public class ActorResourceDeleteTest {
 
 	private Server server;
-	private IActorService actorService;
+	private ActorService actorService;
 	private String userToken = "user_token_value";
 	private String unAuthorizedToken = "-";
 	private List<Actor> actors = new ArrayList<>();
@@ -35,7 +35,7 @@ public class ActorResourceDeleteTest {
 	public void setUp() throws Exception {
 	
 		// Mock the ActorService with some test data
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.deleteActors(userToken)).thenReturn(actors);
 		when(actorService.deleteActors(unAuthorizedToken)).thenThrow(new SecurityException());
 		// Start the server

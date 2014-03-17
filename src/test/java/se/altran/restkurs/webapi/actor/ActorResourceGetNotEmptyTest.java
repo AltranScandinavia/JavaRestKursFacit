@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -38,7 +38,7 @@ public class ActorResourceGetNotEmptyTest {
 	private String uuidPeterHaber;
 	private String uuidSandraBullock;
 
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -63,7 +63,7 @@ public class ActorResourceGetNotEmptyTest {
 		uuidSandraBullock = sandraBullock.getId();
 		uuidPeterHaber = peterHaber.getId();
 		
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.getActors()).thenReturn(actors);
 
 		// Start the server

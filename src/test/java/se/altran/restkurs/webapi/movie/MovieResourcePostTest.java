@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.webapi.HttpHelper;
 
 import com.google.inject.AbstractModule;
@@ -30,14 +30,14 @@ public class MovieResourcePostTest {
 	
 	private Server server;
 	private String uuid;
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	@Before
 	public void setUp() throws Exception {
 
 		// Mock the MovieService with some test data
 		uuid = UUID.randomUUID().toString();
-		movieService = mock(IMovieService.class);
+		movieService = mock(MovieService.class);
 		when(movieService.createMovie(any(MovieBean.class))).thenReturn(uuid);
 		
 		// Start the server

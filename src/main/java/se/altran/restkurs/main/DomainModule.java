@@ -1,9 +1,9 @@
 package se.altran.restkurs.main;
 
+import se.altran.restkurs.actor.ActorServiceImpl;
 import se.altran.restkurs.actor.ActorService;
-import se.altran.restkurs.actor.IActorService;
-import se.altran.restkurs.movie.IMovieService;
 import se.altran.restkurs.movie.MovieService;
+import se.altran.restkurs.movie.MovieServiceImpl;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
@@ -12,21 +12,21 @@ import com.google.inject.Singleton;
 
 public class DomainModule extends AbstractModule {
 	
-	private IMovieService movieService;
-	private IActorService actorService;
+	private MovieService movieService;
+	private ActorService actorService;
 	
-	public DomainModule(IMovieService movieService) {
+	public DomainModule(MovieService movieService) {
 		this.movieService = movieService;
-		actorService = new ActorService();
+		actorService = new ActorServiceImpl();
 	}
-	public DomainModule(IActorService actorService) {
+	public DomainModule(ActorService actorService) {
 		this.actorService = actorService;
-		movieService = new MovieService();
+		movieService = new MovieServiceImpl();
 	}
 	
 	public DomainModule() {
-		movieService = new MovieService();
-		actorService = new ActorService();
+		movieService = new MovieServiceImpl();
+		actorService = new ActorServiceImpl();
 	}
 	
     @Override
@@ -35,12 +35,12 @@ public class DomainModule extends AbstractModule {
     }    
     
     @Provides @Singleton
-    private IMovieService provideIMovieService() {
+    private MovieService provideIMovieService() {
     	return movieService;
     }
     
     @Provides @Singleton
-    private IActorService provideIActorService() {
+    private ActorService provideIActorService() {
     	return actorService;
     }
 }

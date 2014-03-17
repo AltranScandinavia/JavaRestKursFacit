@@ -21,7 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -36,7 +36,7 @@ public class ActorResourceGetMovieLinksTest {
 	private Actor actor;
 	private String uuid;
 	private List<String> moviesIds;
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -48,7 +48,7 @@ public class ActorResourceGetMovieLinksTest {
 		moviesIds = actorBean.getMovies();
 		uuid = actor.getId();
 		
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.getActor(uuid)).thenReturn(actor);
 		
 		// Start the server

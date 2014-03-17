@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -31,7 +31,7 @@ public class ActorResourceGetSpecificTest {
 	private List<Actor> actors;
 	
 	private String uuidPeterHaber;
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -55,7 +55,7 @@ public class ActorResourceGetSpecificTest {
 		actors.add(peterHaber);
 		uuidPeterHaber = peterHaber.getId();
 		
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.getActor(uuidPeterHaber)).thenReturn(peterHaber);
 		// Start the server
 		AbstractModule testModule = new DomainModule(actorService);

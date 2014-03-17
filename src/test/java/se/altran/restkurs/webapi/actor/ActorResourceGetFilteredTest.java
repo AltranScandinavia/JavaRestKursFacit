@@ -24,7 +24,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import se.altran.restkurs.actor.Actor;
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -37,7 +37,7 @@ public class ActorResourceGetFilteredTest {
 	
 	private Server server;
 	private List<Actor> actors;
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -47,7 +47,7 @@ public class ActorResourceGetFilteredTest {
 		List<ActorBean> deserializedActors = deserializeActors(actorsJSON);
 		actors = createActors(deserializedActors);
 		
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.getActorsWithFirstName("Rachel")).thenReturn(actors);
 		
 		// Start the server

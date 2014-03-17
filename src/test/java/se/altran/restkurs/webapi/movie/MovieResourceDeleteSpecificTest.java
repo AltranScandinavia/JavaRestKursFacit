@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.movie.Movie;
 import se.altran.restkurs.movie.MovieNotFoundException;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -30,7 +30,7 @@ public class MovieResourceDeleteSpecificTest {
 	private ArrayList<Movie> movies;
 	private Server server;
 	private String uuidGravity;
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -43,7 +43,7 @@ public class MovieResourceDeleteSpecificTest {
 		movies.add(sunesSommar);
 		movies.add(gravity);
 
-		movieService = mock(IMovieService.class);
+		movieService = mock(MovieService.class);
 		when(movieService.deleteMovie(uuidGravity)).thenReturn(gravity);
 		when(movieService.deleteMovie("incorrectUUID")).thenThrow(new MovieNotFoundException("No movie with specified UUID found."));
 

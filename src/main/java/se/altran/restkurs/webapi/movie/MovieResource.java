@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.movie.Movie;
 import se.altran.restkurs.movie.MovieNotFoundException;
 import se.altran.restkurs.webapi.actor.ActorResource;
@@ -29,7 +29,7 @@ public class MovieResource {
 
 	
 	@Inject
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	
 	@GET

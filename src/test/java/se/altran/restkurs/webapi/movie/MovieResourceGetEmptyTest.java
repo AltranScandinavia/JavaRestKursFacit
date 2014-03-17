@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.movie.Movie;
 import se.altran.restkurs.webapi.HttpHelper;
 
@@ -30,13 +30,13 @@ public class MovieResourceGetEmptyTest {
     	
 	private ArrayList<Movie> movies;
 	private Server server;
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	@Before
 	public void setUp() throws Exception {
 	
 		// Mock the MovieService with test data
-		movieService = mock(IMovieService.class);
+		movieService = mock(MovieService.class);
 		movies = new ArrayList<>();
 		when(movieService.getMovies()).thenReturn(movies);
 

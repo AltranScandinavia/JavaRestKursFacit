@@ -19,7 +19,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import se.altran.restkurs.actor.IActorService;
+import se.altran.restkurs.actor.ActorService;
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
 import se.altran.restkurs.webapi.HttpHelper;
@@ -31,13 +31,13 @@ public class ActorResourcePostTest {
 	private static final String ACTOR_JSON = "actor.json";
 	private Server server;
 	private String uuid = "actor_uuid";
-	private IActorService actorService;
+	private ActorService actorService;
 	
 	@Before
 	public void setUp() throws Exception {
 	
 		// Mock the ActorService with some test data
-		actorService = mock(IActorService.class);
+		actorService = mock(ActorService.class);
 		when(actorService.createActor(any(ActorBean.class))).thenReturn(uuid);
 
 		// Start the server

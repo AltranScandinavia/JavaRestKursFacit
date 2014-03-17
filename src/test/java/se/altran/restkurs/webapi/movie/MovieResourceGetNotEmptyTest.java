@@ -21,7 +21,7 @@ import org.junit.Test;
 
 import se.altran.restkurs.main.AltranREST;
 import se.altran.restkurs.main.DomainModule;
-import se.altran.restkurs.movie.IMovieService;
+import se.altran.restkurs.movie.MovieService;
 import se.altran.restkurs.movie.Movie;
 import se.altran.restkurs.webapi.HttpHelper;
 
@@ -33,7 +33,7 @@ public class MovieResourceGetNotEmptyTest {
 	private Server server;
 	private String uuidSunesSommar;
 	private String uuidGravity;
-	private IMovieService movieService;
+	private MovieService movieService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -47,7 +47,7 @@ public class MovieResourceGetNotEmptyTest {
 		uuidSunesSommar = sunesSommar.getId();
 		uuidGravity = gravity.getId();
 		
-		movieService = mock(IMovieService.class);
+		movieService = mock(MovieService.class);
 		when(movieService.getMovies()).thenReturn(movies);
 
 		// Start the server
