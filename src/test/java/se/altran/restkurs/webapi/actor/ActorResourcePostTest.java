@@ -71,7 +71,7 @@ public class ActorResourcePostTest {
 	// "POST /webapi/actors" must return Response with Location header set to the created Actor. 
 	// "Location: /webapi/actors/{new id}"
 	@Test
-	public void testMovies_POST_ReturnLocationToNewMovie() throws Exception {
+	public void testActors_POST_ReturnLocationToNewActor() throws Exception {
 		
 		// Create POST command to /webapi/actors
 		HttpHelper httpHelper = new HttpHelper("127.0.0.1", 8090);
@@ -85,7 +85,7 @@ public class ActorResourcePostTest {
 		// Execute method and receive response
 		HttpResponse response = httpHelper.executeMethod(httpPost);
 		
-		// Verify that the Location header has been set with the movie just created
+		// Verify that the Location header has been set with the actor just created
 		String location = response.getHeaders("Location")[0].getValue();
 		String newActorUri = "http://127.0.0.1:8090/webapi/actors/" + uuid;
 		assertEquals("A link to the new actor must be returned.", newActorUri, location);
@@ -94,7 +94,7 @@ public class ActorResourcePostTest {
 	
 	// POSTing incorrect json data must return a Response with Status code 400
 	@Test
-	public void testMovies_POST_ReturnErrorStatus() throws Exception {
+	public void testActors_POST_ReturnErrorStatus() throws Exception {
 		
 		// Create POST command to /webapi/actors
 		HttpHelper httpHelper = new HttpHelper("127.0.0.1", 8090);

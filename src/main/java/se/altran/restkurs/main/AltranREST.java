@@ -18,7 +18,7 @@ import com.google.inject.servlet.GuiceFilter;
 public class AltranREST {
 	
 	private static final int PORT = 8080;
-	private static final String CONTEXT_PATH = "/webapi";
+	private static final String CONTEXT_PATH = "/webapi/";
 	
 	private static final Logger LOG = LoggerFactory.getLogger(AltranREST.class);
 	

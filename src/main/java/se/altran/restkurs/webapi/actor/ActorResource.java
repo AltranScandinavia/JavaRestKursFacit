@@ -84,17 +84,17 @@ public class ActorResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addMovie(@Context UriInfo uriInfo, ActorBean actorBean) {
+	public Response addActor(@Context UriInfo uriInfo, ActorBean actorBean) {
 		String id = actorService.createActor(actorBean);
 		
-		// Build URI to the created movie, and return it
+		// Build URI to the created actor, and return it
 		URI actorUri = uriInfo.getBaseUriBuilder().path(ActorResource.class).path(id).build();
 		return Response.created(actorUri).build();
 	}
 	
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteMovies(@HeaderParam("Authorization") String userToken) {
+	public Response deleteActors(@HeaderParam("Authorization") String userToken) {
 		List<Actor> actors = actorService.deleteActors(userToken);
 		List<ActorBean> actorBeans = ActorBeanHelper.asActorBeans(actors);
 		return Response.ok(actorBeans).build();

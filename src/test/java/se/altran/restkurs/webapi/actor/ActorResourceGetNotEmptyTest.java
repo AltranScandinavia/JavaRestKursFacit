@@ -84,8 +84,8 @@ public class ActorResourceGetNotEmptyTest {
 		
 		// Verify the returned data
 		List<ActorBean> parsedActors = deserializeActors(responseData);
-		assertFalse("Movies must exist.", parsedActors.isEmpty());
-		assertEquals("All movies were not found.", actors.size(), parsedActors.size());
+		assertFalse("Actors must exist.", parsedActors.isEmpty());
+		assertEquals("All actors were not found.", actors.size(), parsedActors.size());
 		verify(actorService).getActors();
 	}
 	
